@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pavana Jayan — AI/ML Developer portfolio featuring machine learning, deep learning, computer vision, and intelligent applications." />
+  <title>Pavana Jayan | AI/ML Portfolio</title>
+  <style>
+    :root {
+      --bg: #0b1020; --panel: #121a30; --panel2: #17223c;
+      --text: #eef3ff; --muted: #aab6d2; --accent: #8b9cff;
+      --accent2: #63e6c5; --line: rgba(190,205,255,.15);
+      --shadow: 0 18px 55px rgba(0,0,0,.25);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0; color: var(--text); background:
+      radial-gradient(circle at 80% 0%, rgba(99,230,197,.10), transparent 27rem),
+      radial-gradient(circle at 0% 20%, rgba(139,156,255,.13), transparent 30rem), var(--bg);
+      font: 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, sans-serif;
+    }
+    a { color: inherit; text-decoration: none; }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: auto; }
+    header { position: sticky; top: 0; z-index: 5; backdrop-filter: blur(16px); background: rgba(11,16,32,.78); border-bottom: 1px solid var(--line); }
+    nav { min-height: 70px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { font-weight:800; letter-spacing:.3px; }
+    .brand span { color:var(--accent2); }
+    .navlinks { display:flex; gap:24px; color:var(--muted); font-size:.92rem; }
+    .navlinks a:hover, .textlink:hover { color:var(--accent2); }
+    .hero { padding: 100px 0 78px; display:grid; grid-template-columns: 1.5fr .8fr; gap:50px; align-items:center; }
+    .eyebrow { color:var(--accent2); text-transform:uppercase; letter-spacing:2px; font-size:.78rem; font-weight:800; }
+    h1 { font-size:clamp(2.7rem, 6vw, 5rem); line-height:1.04; letter-spacing:-2.5px; margin:16px 0 20px; }
+    h1 span { color:var(--accent); }
+    .lead { color:var(--muted); font-size:1.12rem; max-width:650px; }
+    .actions { display:flex; flex-wrap:wrap; gap:13px; margin-top:30px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; padding:12px 19px; border-radius:12px; font-weight:750; border:1px solid var(--line); transition:.2s; }
+    .btn.primary { color:#09101d; background:linear-gradient(120deg,var(--accent2),#a8f5df); border:0; }
+    .btn:hover { transform:translateY(-2px); box-shadow:var(--shadow); }
+    .hero-card { padding:28px; border:1px solid var(--line); border-radius:24px; background:linear-gradient(145deg,rgba(23,34,60,.95),rgba(18,26,48,.8)); box-shadow:var(--shadow); }
+    .orb { width:150px; height:150px; border-radius:50%; margin:0 auto 20px; display:grid; place-items:center; font-size:3rem; font-weight:900; color:#0b1020; background:linear-gradient(135deg,var(--accent2),var(--accent)); box-shadow:0 0 60px rgba(139,156,255,.25); }
+    .hero-card h3 { text-align:center; margin:0 0 5px; }
+    .hero-card p { text-align:center; color:var(--muted); margin:0; }
+    .mini-tags { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; margin-top:20px; }
+    .tag { font-size:.78rem; color:#dce5ff; border:1px solid var(--line); background:rgba(255,255,255,.04); border-radius:999px; padding:5px 10px; }
+    section { padding:66px 0; }
+    .section-head { margin-bottom:28px; }
+    .section-head h2 { font-size:2rem; margin:5px 0; letter-spacing:-.8px; }
+    .section-head p { color:var(--muted); margin:0; }
+    .about-grid { display:grid; grid-template-columns:1.2fr .8fr; gap:22px; }
+    .panel { background:rgba(18,26,48,.78); border:1px solid var(--line); border-radius:20px; padding:25px; }
+    .panel p { color:var(--muted); margin-top:0; }
+    .facts { display:grid; gap:13px; }
+    .fact { display:flex; justify-content:space-between; gap:15px; padding-bottom:12px; border-bottom:1px solid var(--line); }
+    .fact:last-child { border:0; padding:0; }
+    .fact span:first-child { color:var(--muted); }
+    .skills { display:flex; flex-wrap:wrap; gap:10px; }
+    .skill { padding:9px 13px; background:var(--panel2); border:1px solid var(--line); border-radius:10px; color:#e3eaff; }
+    .projects { display:grid; grid-template-columns:repeat(2,1fr); gap:18px; }
+    .project { padding:24px; border-radius:20px; border:1px solid var(--line); background:linear-gradient(145deg,rgba(23,34,60,.9),rgba(18,26,48,.82)); display:flex; flex-direction:column; min-height:270px; }
+    .project-top { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+    .project-icon { width:46px; height:46px; display:grid; place-items:center; border-radius:14px; background:rgba(139,156,255,.14); font-size:1.35rem; }
+    .project h3 { margin:18px 0 8px; font-size:1.2rem; }
+    .project p { color:var(--muted); margin:0 0 18px; }
+    .project .mini-tags { justify-content:flex-start; margin: auto 0 0; }
+    .project .tag { font-size:.72rem; }
+    .timeline { display:grid; gap:14px; }
+    .timeline-item { border-left:2px solid var(--accent); padding:2px 0 4px 18px; }
+    .timeline-item h3 { margin:0 0 4px; font-size:1.05rem; }
+    .timeline-item p { color:var(--muted); margin:0; }
+    .contact { display:flex; align-items:center; justify-content:space-between; gap:25px; flex-wrap:wrap; }
+    footer { border-top:1px solid var(--line); padding:25px 0; color:var(--muted); font-size:.88rem; }
+    .textlink { color:var(--accent2); font-weight:700; }
+    @media (max-width:760px) {
+      .navlinks { gap:12px; font-size:.8rem; }
+      .hero, .about-grid, .projects { grid-template-columns:1fr; }
+      .hero { padding:70px 0 45px; gap:28px; }
+      .hero-card { max-width:420px; width:100%; }
+      section { padding:48px 0; }
+    }
+    @media (max-width:440px) {
+      .wrap { width:min(100% - 28px,1100px); }
+      nav { align-items:flex-start; padding:16px 0; flex-direction:column; }
+      .navlinks { flex-wrap:wrap; }
+      h1 { letter-spacing:-1.5px; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="#home">PAVANA<span>.</span></a>
+      <div class="navlinks">
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#education">Background</a><a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="home">
+  <div class="wrap hero">
+    <div>
+      <div class="eyebrow">AI / Machine Learning Portfolio</div>
+      <h1>Hi, I'm <span>Pavana Jayan.</span></h1>
+      <p class="lead">A B.Tech Computer Science graduate specializing in Artificial Intelligence and Machine Learning. I enjoy building practical intelligent applications using machine learning, deep learning, computer vision, and data-driven problem solving.</p>
+      <div class="actions">
+        <a class="btn primary" href="#projects">Explore my projects ↘</a>
+        <a class="btn" href="mailto:jayanpavana0@gmail.com">Contact me</a>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <div class="orb">PJ</div>
+      <h3>Pavana Jayan</h3>
+      <p>AI/ML Graduate · Developer</p>
+      <div class="mini-tags"><span class="tag">Machine Learning</span><span class="tag">Deep Learning</span><span class="tag">Python</span></div>
+    </aside>
+  </div>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Get to know me</div><h2>About me</h2></div>
+      <div class="about-grid">
+        <div class="panel">
+          <p>I am an AI/ML-focused Computer Science graduate with hands-on learning experience in data preprocessing, exploratory data analysis, model building, and application development. I have worked on projects spanning sign language recognition, AI-assisted costume customization, crop yield prediction, and asteroid diameter prediction.</p>
+          <p>I value continuous learning and enjoy turning concepts into working, user-focused solutions.</p>
+        </div>
+        <div class="panel facts">
+          <div class="fact"><span>Degree</span><strong>B.Tech – CSE (AI/ML)</strong></div>
+          <div class="fact"><span>Focus</span><strong>AI & Machine Learning</strong></div>
+          <div class="fact"><span>Based in</span><strong>Kerala, India</strong></div>
+          <div class="fact"><span>Email</span><a class="textlink" href="mailto:jayanpavana0@gmail.com">Get in touch</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">What I work with</div><h2>Technical skills</h2><p>A selection of tools and technologies used in my learning and projects.</p></div>
+      <div class="panel">
+        <div class="skills">
+          <span class="skill">Python</span><span class="skill">Machine Learning</span><span class="skill">Deep Learning</span>
+          <span class="skill">TensorFlow / Keras</span><span class="skill">Scikit-learn</span><span class="skill">Pandas</span>
+          <span class="skill">NumPy</span><span class="skill">OpenCV</span><span class="skill">MediaPipe</span>
+          <span class="skill">XGBoost</span><span class="skill">SHAP</span><span class="skill">Streamlit</span>
+          <span class="skill">SQL / PostgreSQL</span><span class="skill">pgvector</span><span class="skill">Git & GitHub</span>
+          <span class="skill">Excel</span><span class="skill">Data Visualization</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">Selected work</div><h2>Featured projects</h2><p>Four projects demonstrating my interests across AI, ML, and intelligent applications.</p></div>
+      <div class="projects">
+        <article class="project">
+          <div class="project-top"><div class="project-icon">🤟</div><span class="tag">Computer Vision</span></div>
+          <h3>Sign Language Translator</h3>
+          <p>A gesture-recognition application designed to identify sign language alphabets and common expressions from hand movements, helping make communication more accessible.</p>
+          <div class="mini-tags"><span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">MediaPipe</span><span class="tag">TensorFlow</span><span class="tag">CNN / LSTM</span></div>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">🎨</div><span class="tag">Generative AI / RAG</span></div>
+          <h3>COSPLAY AI – Intelligent Costume Customization</h3>
+          <p>An AI-powered costume customization concept combining language and vision capabilities with a product knowledge retrieval workflow. Includes PostgreSQL and vector search for relevant catalog information.</p>
+          <div class="mini-tags"><span class="tag">LLM</span><span class="tag">CNN</span><span class="tag">NLP</span><span class="tag">PostgreSQL</span><span class="tag">pgvector</span><span class="tag">Node.js</span></div>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">🌱</div><span class="tag">Machine Learning</span></div>
+          <h3>Crop Yield Prediction & Smart Irrigation</h3>
+          <p>A data-driven agriculture project using historical crop yield, weather, and soil information to estimate crop yield and support daily irrigation advisory decisions.</p>
+          <div class="mini-tags"><span class="tag">Python</span><span class="tag">XGBoost</span><span class="tag">Pandas</span><span class="tag">SHAP</span><span class="tag">Weather & Soil Data</span></div>
+        </article>
+        <article class="project">
+          <div class="project-top"><div class="project-icon">🪐</div><span class="tag">Deep Learning</span></div>
+          <h3>Asteroid Diameter Prediction</h3>
+          <p>A neural-network regression project to predict asteroid diameter from input features, with model evaluation and a Streamlit interface for interactive predictions.</p>
+          <div class="mini-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">DNN</span><span class="tag">Streamlit</span><span class="tag">Regression</span></div>
+        </article>
+      </div>
+      <p style="color:var(--muted);margin-top:18px;font-size:.9rem">Project-specific repository and live demo URLs can be added when they are published. The GitHub button below currently links to my profile.</p>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="section-head"><div class="eyebrow">My journey</div><h2>Education & learning</h2></div>
+      <div class="panel timeline">
+        <div class="timeline-item"><h3>B.Tech – Computer Science and Engineering (AI & ML)</h3><p>Undergraduate degree completed.</p></div>
+        <div class="timeline-item"><h3>Artificial Intelligence & Machine Learning Training – ICT Academy</h3><p>Coursework and practical learning in AI/ML, including regression and classification model building.</p></div>
+        <div class="timeline-item"><h3>Cybersecurity Certification – Techbyheart</h3><p>Securing the Cloud & Cyber Security.</p></div>
+        <div class="timeline-item"><h3>Leadership & campus involvement</h3><p>House Captain and College Arts Coordinator.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="panel contact">
+        <div><div class="eyebrow">Let's connect</div><h2 style="margin:5px 0">Have an opportunity or project in mind?</h2><p style="color:var(--muted);margin:0">I would be happy to connect and discuss AI/ML opportunities.</p></div>
+        <div class="actions" style="margin:0">
+          <a class="btn primary" href="mailto:jayanpavana0@gmail.com">Email me</a>
+          <a class="btn" href="https://www.linkedin.com/in/pavana-jayan/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn" href="https://github.com/pavanajayan" target="_blank" rel="noopener">GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">© <span id="year">2026</span> Pavana Jayan · AI/ML Portfolio</div></footer>
+</body>
+</html>
